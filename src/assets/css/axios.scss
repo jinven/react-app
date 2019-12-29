@@ -1,0 +1,15 @@
+.forms span{
+    display: inline-block;
+    width:70px;
+    min-height:20px;
+    padding-right: 10px;
+    vertical-align: top;
+    text-align: right;
+}
+.forms div{
+    margin:5px 0;
+}
+.forms input, .forms textarea, .forms button{
+    width: 300px;
+    min-height: 26px;
+}

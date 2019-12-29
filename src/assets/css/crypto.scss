@@ -1,0 +1,25 @@
+
+    #crypto p{
+        font-weight:bold;
+    }
+    #crypto div{
+        padding:5px 10px;
+        text-align: left;
+        display:flex;
+        span{
+            display:flex;
+            width:150px;
+            padding-right:10px;
+            text-align: right;
+            color:#5786f1;
+            font-weight: bold;
+            justify-content: flex-end;
+        }
+        p{
+            display:flex;
+            margin:0;
+            padding:0;
+            width: calc( 100% - 170px );
+            word-break: break-all;
+        }
+    }

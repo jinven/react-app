@@ -1,0 +1,57 @@
+html{
+    scroll-behavior: smooth;
+  }
+  .elfx{
+    display:flex;
+    .ellt{
+      display:flex;
+      width: 200px;
+      background-color:rgba(192, 212, 210, 0.3);
+      ul{
+        margin:0;
+        padding:10px 0;
+        width:100%;
+        list-style: none;
+        text-align: left;
+        user-select: none;
+        overflow:auto;
+        &::-webkit-scrollbar{
+          width: 6px;
+          height: 4px;
+          background: rgba(200,200,200,.3);
+        }
+        &::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.15);
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.3);
+        }
+        li{
+          padding:0;
+          width:100%;
+          line-height: 16px;
+          cursor:pointer;
+          &:hover{
+            background-color:rgba(156, 130, 152, 0.3);
+          }
+          a{
+            width:100%;
+            padding:10px 20px !important;
+          }
+        }
+        .current{
+          color:#2031ff;
+          font-weight: bold;
+        }
+      }
+    }
+    .elrt{
+      display:flex;
+      width: calc( 100% - 200px );
+      .el{
+        width:100%;
+        padding:0 10px;
+        box-sizing: border-box;
+      }
+    }
+  }

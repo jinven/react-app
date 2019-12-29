@@ -1,0 +1,17 @@
+body{
+    margin:0;
+    padding:0;
+    border:0;
+    font-family:'Microsoft YaHei',cursive,sans-serif;
+    color:#555;
+    -webkit-tap-highlight-color:transparent;
+    -webkit-appearance:none;
+    -webkit-overflow-scrolling:touch;
+    touch-action:none;
+    outline:0;
+    -webkit-touch-callout:none;
+    background-color:transparent !important;
+}
+*{
+    box-sizing:border-box;
+}
