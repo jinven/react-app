@@ -1,9 +1,10 @@
 import React from 'react'
 import '../assets/css/login.scss'
-import { Form, Button, Input, Icon, Alert, message  } from 'antd';
+import { Form, Button, Input, Icon, Alert, message, Typography  } from 'antd';
 import { useHistory } from "react-router-dom";
 import { withRouter } from 'react-router';
 import { FormattedMessage, injectIntl  } from 'react-intl';
+const { Paragraph, Text } = Typography;
 let history;
 class LoginForm extends React.Component{
     state = {
@@ -118,8 +119,12 @@ class LoginForm extends React.Component{
                     </Form.Item>
                 }
                 <Form.Item {...tailFormItemLayout}>
-                <Button type="primary" htmlType="submit"><FormattedMessage id="submit" /></Button>
+                    <Button type="primary" htmlType="submit" style={{width: 218}}><FormattedMessage id="submit" /></Button>
                 </Form.Item>
+                <Paragraph style={{textAlign: 'right', paddingRight: 20}}>
+                    <Text code>admin</Text>
+                    <Text code>123456</Text>
+                </Paragraph>
             </Form>
         )
     }
