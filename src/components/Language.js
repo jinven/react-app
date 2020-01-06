@@ -6,6 +6,7 @@ import { FormattedMessage, injectIntl  } from 'react-intl';
 const styles = `
 article {
     text-align: left;
+    background-color: rgba(222, 222, 222, 0.3);
     color: #1d1d1d;
     font-size: 20px;
     margin: 20px 30px 30px;
