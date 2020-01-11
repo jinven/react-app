@@ -1,6 +1,7 @@
 // https://reacttraining.com/react-router/
 import React from 'react'
-import { BrowserRouter as Router, Switch, Link, Route, useRouteMatch, useParams, NavLink, Redirect, useHistory } from 'react-router-dom'
+import { withRouter } from 'react-router';
+import { Switch, Link, Route, useRouteMatch, useParams, NavLink, Redirect, useHistory } from 'react-router-dom'
 import Main from './routes/main'
 import Hello from './routes/hello'
 import Static from './routes/static'
@@ -39,65 +40,67 @@ function Topics() {
     </div>
   )
 }
-export default function ChildRoute() {
+export default withRouter(function ChildRoute(props) {
   let match = useRouteMatch()
-  let history = useHistory();
+  let history = useHistory()
   function sayHello(){
-    history.push('/route/hello')
+    props.history.push('/route/hello', {})
   }
   return (
-    <Router>
+    <div>
+      <h2>route</h2>
+      <label><input type="checkbox" /><span>A</span></label>
+      <label><input type="checkbox" /><span>B</span></label>
+      <label><input type="checkbox" /><span>C</span></label>
+      <label><input type="checkbox" /><span>D</span></label>
+      <p></p>
+      <button>go back</button>
+      <button>go forward</button>
       <div>
-        <h2>route</h2>
-        <label><input type="checkbox" /><span>A</span></label>
-        <label><input type="checkbox" /><span>B</span></label>
-        <label><input type="checkbox" /><span>C</span></label>
-        <label><input type="checkbox" /><span>D</span></label>
-        <p></p>
-        <button>go back</button>
-        <button>go forward</button>
-        <div>
-          <button onClick={sayHello}>say hello</button>
-        </div>
-        <div>
-          <h1>Route props</h1>
-          <ul>
-            <li><Link to="/route">/route</Link></li>
-            <li><Link to={`${match.url}/hello`}>/route/hello</Link></li>
-            <li><Link to="/route/hello/you">/route/hello/you</Link></li>
-            <li><Link to="/route/static">/route/static</Link></li>
-            <li><Link to="/route/dynamic/1">/route/dynamic/1</Link></li>
-            <li><Link to="/route/attrs">/route/attrs</Link></li>
-            <li><Link to="/route/users">/users</Link></li>
-            <li><Link to="/route/redirect">/users</Link></li>
-            <li><Link to={`${match.url}/topics`}>/topics</Link></li>
-          </ul>
-        </div>
-        <Switch>
-          <Redirect from='/route/redirect' to='/route/users' />
-          <Route path={`${match.path}/hello/:name`}>
-            <Hello />
-          </Route>
-          <Route path={`${match.path}/hello`}>
-            <Hello />
-          </Route>
-          <Route path="/route/static">
-            <Static />
-          </Route>
-          <Route path="/route/dynamic/:id">
-            <Dynamic />
-          </Route>
-          <Route path="/route/users">
-            <Users />
-          </Route>
-          <Route path="/route/topics">
-            <Topics />
-          </Route>
-          <Route path="/route">
-            <Main />
-          </Route>
-        </Switch>
+        <button onClick={sayHello}>say hello</button>
+        <button onClick={() => { history.push('/route/hello/you') }}>say hello you</button>
       </div>
-    </Router>
+      <div>
+        <h1>Route props</h1>
+        <ul>
+          <li><Link to="/route">/route</Link></li>
+          <li><Link to={`${match.url}/hello`}>/route/hello</Link></li>
+          <li><Link to="/route/hello/you">/route/hello/you</Link></li>
+          <li><Link to="/route/static">/route/static</Link></li>
+          <li><Link to="/route/dynamic/1">/route/dynamic/1</Link></li>
+          <li><Link to="/route/attrs">/route/attrs</Link></li>
+          <li><Link to="/route/users">/users</Link></li>
+          <li><Link to="/route/redirect">/users</Link></li>
+          <li><Link to={`${match.url}/topics`}>/topics</Link></li>
+        </ul>
+      </div>
+      <Switch>
+        <Redirect from='/route/redirect' to='/route/users' />
+        <Route path={`${match.path}/hello/:name`}>
+          <Hello />
+        </Route>
+        <Route path={`${match.path}/hello`}>
+          <Hello />
+        </Route>
+        <Route path="/route/static">
+          <Static />
+        </Route>
+        <Route path="/route/dynamic/:id">
+          <Dynamic />
+        </Route>
+        <Route path="/route/users">
+          <Users />
+        </Route>
+        <Route path="/route/topics">
+          <Topics />
+        </Route>
+        <Route path="/route">
+          <Main />
+        </Route>
+      </Switch>
+    </div>
   )
-}
+})
+// export default withRouter(function RouteView(props) {
+//   return <ChildRoute />
+// })
